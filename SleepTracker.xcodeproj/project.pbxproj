@@ -83,8 +83,6 @@
 		B0AADEBD1A84000B0044E123 /* SleepTracker */ = {
 			isa = PBXGroup;
 			children = (
-				B0AADEC21A84000B0044E123 /* AppDelegate.h */,
-				B0AADEC31A84000B0044E123 /* AppDelegate.m */,
 				B0AADEC81A84000B0044E123 /* ViewController.h */,
 				B0AADEC91A84000B0044E123 /* ViewController.m */,
 				B0AADECB1A84000B0044E123 /* Main.storyboard */,
@@ -99,6 +97,8 @@
 		B0AADEBE1A84000B0044E123 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B0AADEC21A84000B0044E123 /* AppDelegate.h */,
+				B0AADEC31A84000B0044E123 /* AppDelegate.m */,
 				B0AADEBF1A84000B0044E123 /* Info.plist */,
 				B0AADEC01A84000B0044E123 /* main.m */,
 			);
