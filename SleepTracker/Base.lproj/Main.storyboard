@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sleep Tracker View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="SleepTrackerViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +15,125 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2A8-YH-sR5">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="84" id="5Lr-5A-S9y"/>
+                                    <constraint firstAttribute="height" constant="21" id="88c-EA-PBx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="5Lr-5A-S9y"/>
+                                        <exclude reference="88c-EA-PBx"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="5Lr-5A-S9y"/>
+                                        <include reference="88c-EA-PBx"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yZ2-Rc-Nd7">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="zRH-4D-cWh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="zRH-4D-cWh"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="zRH-4D-cWh"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aRW-Yk-JZU">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZNR-8K-HLV">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Sleep">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZNR-8K-HLV" firstAttribute="top" secondItem="yZ2-Rc-Nd7" secondAttribute="bottom" constant="79" id="1HD-yp-dRn"/>
+                            <constraint firstItem="2A8-YH-sR5" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="OvI-kd-Cef"/>
+                            <constraint firstItem="yZ2-Rc-Nd7" firstAttribute="centerX" secondItem="aRW-Yk-JZU" secondAttribute="centerX" id="ZZF-ok-yo0"/>
+                            <constraint firstItem="2A8-YH-sR5" firstAttribute="leading" secondItem="yZ2-Rc-Nd7" secondAttribute="leading" id="aL9-NL-uzN"/>
+                            <constraint firstItem="aRW-Yk-JZU" firstAttribute="top" secondItem="ZNR-8K-HLV" secondAttribute="bottom" constant="8" symbolic="YES" id="fkn-Lg-0xW"/>
+                            <constraint firstItem="yZ2-Rc-Nd7" firstAttribute="top" secondItem="2A8-YH-sR5" secondAttribute="bottom" constant="76" id="g4G-V0-c5v"/>
+                            <constraint firstAttribute="trailing" secondItem="aRW-Yk-JZU" secondAttribute="trailing" id="gqd-We-zz5"/>
+                            <constraint firstItem="ZNR-8K-HLV" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="177" id="j5o-RR-b6s"/>
+                            <constraint firstItem="aRW-Yk-JZU" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="ppL-Ps-ut2"/>
+                            <constraint firstItem="aRW-Yk-JZU" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="rhZ-7W-ty1"/>
+                            <constraint firstItem="2A8-YH-sR5" firstAttribute="trailing" secondItem="yZ2-Rc-Nd7" secondAttribute="trailing" id="uP6-oL-IiB"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="2A8-YH-sR5"/>
+                                <exclude reference="yZ2-Rc-Nd7"/>
+                                <exclude reference="aRW-Yk-JZU"/>
+                                <exclude reference="ZNR-8K-HLV"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="OvI-kd-Cef"/>
+                                <exclude reference="aL9-NL-uzN"/>
+                                <exclude reference="uP6-oL-IiB"/>
+                                <exclude reference="ZZF-ok-yo0"/>
+                                <exclude reference="g4G-V0-c5v"/>
+                                <exclude reference="1HD-yp-dRn"/>
+                                <exclude reference="j5o-RR-b6s"/>
+                                <exclude reference="fkn-Lg-0xW"/>
+                                <exclude reference="gqd-We-zz5"/>
+                                <exclude reference="ppL-Ps-ut2"/>
+                                <exclude reference="rhZ-7W-ty1"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="2A8-YH-sR5"/>
+                                <include reference="yZ2-Rc-Nd7"/>
+                                <include reference="aRW-Yk-JZU"/>
+                                <include reference="ZNR-8K-HLV"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="OvI-kd-Cef"/>
+                                <include reference="aL9-NL-uzN"/>
+                                <include reference="uP6-oL-IiB"/>
+                                <include reference="ZZF-ok-yo0"/>
+                                <include reference="g4G-V0-c5v"/>
+                                <include reference="1HD-yp-dRn"/>
+                                <include reference="j5o-RR-b6s"/>
+                                <include reference="fkn-Lg-0xW"/>
+                                <include reference="gqd-We-zz5"/>
+                                <include reference="ppL-Ps-ut2"/>
+                                <include reference="rhZ-7W-ty1"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="DateLabel" destination="2A8-YH-sR5" id="B5b-v2-TQE"/>
+                        <outlet property="RecordButton" destination="ZNR-8K-HLV" id="66G-0m-Yip"/>
+                        <outlet property="TimeLabel" destination="yZ2-Rc-Nd7" id="ENO-7g-plQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="141" y="290.25"/>
         </scene>
     </scenes>
 </document>

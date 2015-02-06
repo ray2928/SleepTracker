@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>74885E89-00C7-4793-B88A-FA10BC2DC88D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SleepTracker</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>5AF8AC72E905E3F3A1B221688BACC03E262D566D</key>
+		<string>https://github.com/ray2928/SleepTracker.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SleepTracker.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>5AF8AC72E905E3F3A1B221688BACC03E262D566D</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/ray2928/SleepTracker.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>5AF8AC72E905E3F3A1B221688BACC03E262D566D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5AF8AC72E905E3F3A1B221688BACC03E262D566D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SleepTracker</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -10,11 +10,12 @@
 		B0AADEC11A84000B0044E123 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AADEC01A84000B0044E123 /* main.m */; };
 		B0AADEC41A84000B0044E123 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AADEC31A84000B0044E123 /* AppDelegate.m */; };
 		B0AADEC71A84000B0044E123 /* SleepTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0AADEC51A84000B0044E123 /* SleepTracker.xcdatamodeld */; };
-		B0AADECA1A84000B0044E123 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AADEC91A84000B0044E123 /* ViewController.m */; };
 		B0AADECD1A84000B0044E123 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0AADECB1A84000B0044E123 /* Main.storyboard */; };
 		B0AADECF1A84000B0044E123 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0AADECE1A84000B0044E123 /* Images.xcassets */; };
 		B0AADED21A84000B0044E123 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0AADED01A84000B0044E123 /* LaunchScreen.xib */; };
 		B0AADEDE1A84000B0044E123 /* SleepTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AADEDD1A84000B0044E123 /* SleepTrackerTests.m */; };
+		B0D95A771A840DFB0048F66C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D95A761A840DFB0048F66C /* User.m */; };
+		B0D95A7A1A840E290048F66C /* SleepTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D95A791A840E290048F66C /* SleepTrackerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,14 +35,16 @@
 		B0AADEC21A84000B0044E123 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B0AADEC31A84000B0044E123 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B0AADEC61A84000B0044E123 /* SleepTracker.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SleepTracker.xcdatamodel; sourceTree = "<group>"; };
-		B0AADEC81A84000B0044E123 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B0AADEC91A84000B0044E123 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B0AADECC1A84000B0044E123 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0AADECE1A84000B0044E123 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		B0AADED11A84000B0044E123 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		B0AADED71A84000B0044E123 /* SleepTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0AADEDC1A84000B0044E123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0AADEDD1A84000B0044E123 /* SleepTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerTests.m; sourceTree = "<group>"; };
+		B0D95A751A840DFB0048F66C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
+		B0D95A761A840DFB0048F66C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
+		B0D95A781A840E290048F66C /* SleepTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepTrackerViewController.h; sourceTree = "<group>"; };
+		B0D95A791A840E290048F66C /* SleepTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,12 +86,14 @@
 		B0AADEBD1A84000B0044E123 /* SleepTracker */ = {
 			isa = PBXGroup;
 			children = (
-				B0AADEC81A84000B0044E123 /* ViewController.h */,
-				B0AADEC91A84000B0044E123 /* ViewController.m */,
+				B0D95A781A840E290048F66C /* SleepTrackerViewController.h */,
+				B0D95A791A840E290048F66C /* SleepTrackerViewController.m */,
 				B0AADECB1A84000B0044E123 /* Main.storyboard */,
 				B0AADECE1A84000B0044E123 /* Images.xcassets */,
 				B0AADED01A84000B0044E123 /* LaunchScreen.xib */,
 				B0AADEC51A84000B0044E123 /* SleepTracker.xcdatamodeld */,
+				B0D95A751A840DFB0048F66C /* User.h */,
+				B0D95A761A840DFB0048F66C /* User.m */,
 				B0AADEBE1A84000B0044E123 /* Supporting Files */,
 			);
 			path = SleepTracker;
@@ -222,10 +227,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D95A771A840DFB0048F66C /* User.m in Sources */,
 				B0AADEC41A84000B0044E123 /* AppDelegate.m in Sources */,
 				B0AADEC71A84000B0044E123 /* SleepTracker.xcdatamodeld in Sources */,
-				B0AADECA1A84000B0044E123 /* ViewController.m in Sources */,
 				B0AADEC11A84000B0044E123 /* main.m in Sources */,
+				B0D95A7A1A840E290048F66C /* SleepTrackerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -416,6 +422,7 @@
 				B0AADEE31A84000B0044E123 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B0AADEE41A84000B0044E123 /* Build configuration list for PBXNativeTarget "SleepTrackerTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +431,7 @@
 				B0AADEE61A84000B0044E123 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
