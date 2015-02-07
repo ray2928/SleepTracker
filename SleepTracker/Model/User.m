@@ -14,4 +14,12 @@
 @dynamic sleepDate;
 @dynamic aWakeDate;
 
+
+-(void) pressSleep:(NSDate*) sleepDate{
+    
+}
+-(void) pressWake:(NSDate*) aWakeDate{
+    
+}
+
 @end

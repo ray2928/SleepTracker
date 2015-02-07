@@ -65,6 +65,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B01E309A1A86A20D00D643ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B0D95A751A840DFB0048F66C /* User.h */,
+				B0D95A761A840DFB0048F66C /* User.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		B0AADEB21A84000B0044E123 = {
 			isa = PBXGroup;
 			children = (
@@ -86,14 +95,13 @@
 		B0AADEBD1A84000B0044E123 /* SleepTracker */ = {
 			isa = PBXGroup;
 			children = (
+				B01E309A1A86A20D00D643ED /* Model */,
 				B0D95A781A840E290048F66C /* SleepTrackerViewController.h */,
 				B0D95A791A840E290048F66C /* SleepTrackerViewController.m */,
 				B0AADECB1A84000B0044E123 /* Main.storyboard */,
 				B0AADECE1A84000B0044E123 /* Images.xcassets */,
 				B0AADED01A84000B0044E123 /* LaunchScreen.xib */,
 				B0AADEC51A84000B0044E123 /* SleepTracker.xcdatamodeld */,
-				B0D95A751A840DFB0048F66C /* User.h */,
-				B0D95A761A840DFB0048F66C /* User.m */,
 				B0AADEBE1A84000B0044E123 /* Supporting Files */,
 			);
 			path = SleepTracker;

@@ -10,31 +10,25 @@
 
 @interface SleepTrackerViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *DateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *TimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *RecordButton;
+@property (weak, nonatomic) IBOutlet UIDatePicker *TimePicker;
 
 @end
 
 @implementation SleepTrackerViewController
 
-- (void)viewDidLoad {
+-(NSString *) currentDate{
+    NSDate *date =[NSDate date];
+    NSDateFormatter *dateformatter = [[NSDateFormatter alloc]init];
+    [dateformatter setDateFormat:@"MM-dd-yyyy"];
+    NSString* currDate = [dateformatter stringFromDate:date];
+    NSLog(@"date is %@",currDate);
+    return currDate;
+}
+
+- (void) viewDidLoad{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.DateLabel.text = [self currentDate];
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

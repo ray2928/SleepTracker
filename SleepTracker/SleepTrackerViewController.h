@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface SleepTrackerViewController : UIViewController
-
+@property (strong, nonatomic) User *user;
 @end

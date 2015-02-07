@@ -16,3 +16,4 @@
 @property (nonatomic, retain) NSDate * aWakeDate;
 
 @end
+
