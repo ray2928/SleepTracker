@@ -67,6 +67,9 @@
                                         <include reference="lwx-AY-aIA"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="SleepRecord:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9MV-GP-OY4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -94,11 +97,11 @@
                             <mask key="constraints">
                                 <exclude reference="E0i-5m-eB5"/>
                                 <exclude reference="te0-zc-Dc1"/>
+                                <exclude reference="3w8-Xg-yc3"/>
                                 <exclude reference="BTN-2B-559"/>
                                 <exclude reference="JkE-Ro-kEv"/>
                                 <exclude reference="P3J-5G-fG3"/>
                                 <exclude reference="SRv-Gd-Pi1"/>
-                                <exclude reference="3w8-Xg-yc3"/>
                                 <exclude reference="EN0-Sg-AS0"/>
                                 <exclude reference="K7b-uK-em7"/>
                                 <exclude reference="bda-aB-udP"/>
@@ -116,11 +119,11 @@
                             <mask key="constraints">
                                 <include reference="E0i-5m-eB5"/>
                                 <include reference="te0-zc-Dc1"/>
+                                <include reference="3w8-Xg-yc3"/>
                                 <include reference="BTN-2B-559"/>
                                 <include reference="JkE-Ro-kEv"/>
                                 <include reference="P3J-5G-fG3"/>
                                 <include reference="SRv-Gd-Pi1"/>
-                                <include reference="3w8-Xg-yc3"/>
                                 <include reference="EN0-Sg-AS0"/>
                                 <include reference="K7b-uK-em7"/>
                                 <include reference="bda-aB-udP"/>
