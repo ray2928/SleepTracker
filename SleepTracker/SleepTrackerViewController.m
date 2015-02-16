@@ -28,24 +28,24 @@
 
 // write the time time and awake time persistently
 - (IBAction)SleepRecord:(UIButton *)sender {
-    NSDate *currentTime = self.TimePicker.date;
-    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-    [timeFormatter setDateFormat:@"HH:mm"];
-    NSString* currTime = [timeFormatter stringFromDate:currentTime];
-    NSLog(@"time is %@", currTime);
-    //record sleepTime
-    NSManagedObjectContext *context = [self manageObjectContext];
-    NSManagedObject *newSleepTime = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
-    [newSleepTime setValue:currentTime forKey:@"sleepDate"];
-    
-    NSError *error = nil;
-    if (![context save:&error]) {
-        NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
-    }
-    
+//    NSDate *currentTime = self.TimePicker.date;
+//    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+//    [timeFormatter setDateFormat:@"HH:mm"];
+//    NSString* currTime = [timeFormatter stringFromDate:currentTime];
+//    NSLog(@"time is %@", currTime);
+//    //record sleepTime
+//    NSManagedObjectContext *context = [self managedObjectContext];
+//    NSManagedObject *newSleepTime = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
+//    [newSleepTime setValue:currentTime forKey:@"sleepDate"];
+//    [newSleepTime setValue:@"111" forKey:@"userID"];
+//    
+//    NSError *error = nil;
+//    if (![context save:&error]) {
+//        NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
+//    }
+    [self fetchData];
 }
-
-- (NSManagedObjectContext *) manageObjectContext {
+- (NSManagedObjectContext *) managedObjectContext {
     NSManagedObjectContext *context = nil;
     id delegate = [[UIApplication sharedApplication] delegate];
     if ([delegate performSelector:@selector(managedObjectContext)]) {
@@ -53,6 +53,35 @@
     }
     return context;
 }
+
+- (void) fetchData{
+    //NSString *str = nil;
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"User" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                              @"(userID == 111)"];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"sleepDate" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error;
+    NSArray *array = [moc executeFetchRequest:request error:&error];
+    if (array == nil)
+    {
+        NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
+    }
+    for (NSDate *date in array) {
+        NSLog(@"%@", date);
+    }
+}
+
 
 
 
