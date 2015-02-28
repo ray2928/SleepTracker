@@ -28,22 +28,21 @@
 
 // write the time time and awake time persistently
 - (IBAction)SleepRecord:(UIButton *)sender {
-//    NSDate *currentTime = self.TimePicker.date;
-//    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-//    [timeFormatter setDateFormat:@"HH:mm"];
-//    NSString* currTime = [timeFormatter stringFromDate:currentTime];
-//    NSLog(@"time is %@", currTime);
-//    //record sleepTime
-//    NSManagedObjectContext *context = [self managedObjectContext];
-//    NSManagedObject *newSleepTime = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
-//    [newSleepTime setValue:currentTime forKey:@"sleepDate"];
-//    [newSleepTime setValue:@"111" forKey:@"userID"];
-//    
-//    NSError *error = nil;
-//    if (![context save:&error]) {
-//        NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
-//    }
-    [self fetchData];
+    NSDate *currentTime = self.TimePicker.date;
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+    [timeFormatter setDateFormat:@"HH:mm"];
+    NSString* currTime = [timeFormatter stringFromDate:currentTime];
+    NSLog(@"time is %@", currTime);
+    //record sleepTime
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *newSleepTime = [NSEntityDescription insertNewObjectForEntityForName:@"SleepInfomation" inManagedObjectContext:context];
+    [newSleepTime setValue:currentTime forKey:@"sleepDate"];
+    [newSleepTime setValue:@"111" forKey:@"userID"];
+    
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
+    }
 }
 - (NSManagedObjectContext *) managedObjectContext {
     NSManagedObjectContext *context = nil;
@@ -58,7 +57,7 @@
     //NSString *str = nil;
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSEntityDescription *entityDescription = [NSEntityDescription
-                                              entityForName:@"User" inManagedObjectContext:moc];
+                                              entityForName:@"SleepInfomation" inManagedObjectContext:moc];
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
     [request setEntity:entityDescription];
     
@@ -78,6 +77,7 @@
         NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
     }
     for (NSDate *date in array) {
+        NSLog(@"h");
         NSLog(@"%@", date);
     }
 }
@@ -89,6 +89,7 @@
 - (void) viewDidLoad{
     [super viewDidLoad];
     self.DateLabel.text = [self currentDate];
+    [self fetchData];
 }
 
 @end
