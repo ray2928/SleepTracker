@@ -2,7 +2,7 @@
 //  SleepInfomation.m
 //  SleepTracker
 //
-//  Created by rui xie on 2/28/15.
+//  Created by rui xie on 3/1/15.
 //  Copyright (c) 2015 Rui Xie. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @dynamic isSleep;
 @dynamic sleepDate;
 @dynamic userID;
+@dynamic duration;
 @dynamic whoHas;
 
 @end

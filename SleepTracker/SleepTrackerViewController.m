@@ -7,6 +7,7 @@
 //
 
 #import "SleepTrackerViewController.h"
+#import "SleepInformationTableViewCell.h"
 
 @interface SleepTrackerViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *DateLabel;
@@ -22,42 +23,36 @@
     NSDateFormatter *dateformatter = [[NSDateFormatter alloc]init];
     [dateformatter setDateFormat:@"MM-dd-yyyy"];
     NSString* currDate = [dateformatter stringFromDate:date];
-    //NSLog(@"date is %@",currDate);
     return currDate;
 }
 
+#pragma mark - Button event
 // write the time time and awake time persistently
 - (IBAction)SleepRecord:(UIButton *)sender {
     NSDate *currentTime = self.TimePicker.date;
-    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-    [timeFormatter setDateFormat:@"HH:mm"];
-    NSString* currTime = [timeFormatter stringFromDate:currentTime];
-    NSLog(@"time is %@", currTime);
     //record sleepTime or awake time
     NSManagedObjectContext *context = [self managedObjectContext];
     if ([self.RecordButton.titleLabel.text  isEqual: @"Sleep"]) {
-
         NSManagedObject *newSleepTime = [NSEntityDescription insertNewObjectForEntityForName:@"SleepInfomation" inManagedObjectContext:context];
+        
         [newSleepTime setValue:currentTime forKey:@"sleepDate"];
         [newSleepTime setValue:@"ray" forKey:@"userID"];
-        [newSleepTime setValue:false forKey:@"isSleep"];
+        [newSleepTime setValue:[NSNumber numberWithInt:1] forKey:@"isSleep"];
+        [newSleepTime setValue:[NSNumber numberWithDouble:0] forKey:@"duration"];
         
         [self.RecordButton setTitle:@"Awake" forState:UIControlStateNormal];
     } else {
         NSArray *sleepInformationArray = [self fetchSleepInfomationData];
-//        NSMutableArray *sleeptime = [[sleepInformationArray valueForKey:@"sleepDate"]mutableCopy];
-//        for (NSDate *date in sleeptime) {
-//            NSLog(@"sleep time is %@",date);
-//        }
         NSManagedObject *sleepRecord = [sleepInformationArray firstObject];
+        NSDate *sleepTime = [sleepRecord valueForKey:@"sleepDate"];
+        NSTimeInterval timeElapsed = [currentTime timeIntervalSinceDate:sleepTime];
+
         [sleepRecord setValue:currentTime forKey:@"aWakeDate"];
+        [sleepRecord setValue:[NSNumber numberWithInt:0] forKey:@"isSleep"];
+        [sleepRecord setValue:[NSNumber numberWithDouble:timeElapsed] forKey:@"duration"];
         
-        [sleepRecord setValue:[NSNumber numberWithInt:1] forKey:@"isSleep"];
         [self.RecordButton setTitle:@"Sleep" forState:UIControlStateNormal];
     }
-
-    
-    
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
@@ -74,7 +69,7 @@
     return context;
 }
 
-
+#pragma mark - Fetch data
 - (NSArray *) fetchSleepInfomationData{
     //NSString *str = nil;
     NSManagedObjectContext *moc = [self managedObjectContext];
@@ -86,7 +81,7 @@
     // Set example predicate and sort orderings...
     NSString *userID = @"ray";
     //int isSleep = 0;
-    bool isSleep = false;
+    NSNumber *isSleep = [NSNumber numberWithInt:1];
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@ and isSleep == %@", userID, isSleep];
     [request setPredicate:predicate];
     
@@ -104,7 +99,6 @@
 }
 
 - (NSArray *) fetchUserSleepRecord: (NSString *) userID{
-    //NSString *str = nil;
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSEntityDescription *entityDescription = [NSEntityDescription
                                               entityForName:@"SleepInfomation" inManagedObjectContext:moc];
@@ -128,18 +122,37 @@
     return sleepInformationArray;
 }
 
+#pragma mark - Load tableview
 // complete tableview delegate method
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [SleepInformationOfUser count];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *tableIndentifier = @"User Sleep Information";
-    UITableViewCell *sleepInforCell = [tableView dequeueReusableCellWithIdentifier:tableIndentifier];
+    static NSString *tableIndentifier = @"Customized Sleep Information Cell";
+    //UITableViewCell *sleepInforCell = [tableView dequeueReusableCellWithIdentifier:tableIndentifier];
+    SleepInformationTableViewCell *sleepInforCell = (SleepInformationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:tableIndentifier];
+//    if (sleepInforCell == nil) {
+//        sleepInforCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:tableIndentifier];
+//    }
     if (sleepInforCell == nil) {
-        sleepInforCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:tableIndentifier];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:tableIndentifier owner:self options:nil];
+        sleepInforCell = [nib objectAtIndex:0];
     }
-    sleepInforCell.textLabel.text = [[SleepInformationOfUser valueForKey:@"userID"] objectAtIndex:indexPath.row];
+    NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
+    [timeFormatter setDateFormat:@"YYYY:MM:DD HH:MM:SS"];
+    NSString *sleepDate = [timeFormatter stringFromDate: [[SleepInformationOfUser valueForKey:@"sleepDate"] objectAtIndex:indexPath.row]];
+    NSString *awakeDate = [timeFormatter stringFromDate:[[SleepInformationOfUser valueForKey:@"aWakeDate"] objectAtIndex:indexPath.row]];
+    NSNumber *duration = [[SleepInformationOfUser valueForKey:@"duration"] objectAtIndex:indexPath.row];
+    NSString *name =[[SleepInformationOfUser valueForKey:@"userID"] objectAtIndex:indexPath.row];
+    int hours = [duration intValue]/3600;
+    int minues = ([duration intValue]-hours*3600)/60;
+    
+    //sleepInforCell.textLabel.text = [timeFormatter stringFromDate: sleepDate];
+    sleepInforCell.label_name.text =[NSString stringWithFormat:@"Name: %@", name];
+    sleepInforCell.label_sleepAt.text = [NSString stringWithFormat:@"Sleep at: %@", sleepDate];
+    sleepInforCell.label_awakeAt.text = [NSString stringWithFormat:@"Awake at: %@", awakeDate];
+    sleepInforCell.duration.text = [NSString stringWithFormat:@"Duration: %d h, %d m", hours, minues];
     return sleepInforCell;
 }
 

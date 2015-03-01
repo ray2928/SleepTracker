@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B095A8F11AA39110001F5989 /* SleepInfomation.m in Sources */ = {isa = PBXBuildFile; fileRef = B095A8F01AA39110001F5989 /* SleepInfomation.m */; };
+		B095A8F71AA3A088001F5989 /* SleepInformationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B095A8F61AA3A088001F5989 /* SleepInformationTableViewCell.m */; };
 		B0AADEC11A84000B0044E123 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AADEC01A84000B0044E123 /* main.m */; };
 		B0AADEC41A84000B0044E123 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AADEC31A84000B0044E123 /* AppDelegate.m */; };
 		B0AADEC71A84000B0044E123 /* SleepTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0AADEC51A84000B0044E123 /* SleepTracker.xcdatamodeld */; };
@@ -17,7 +19,6 @@
 		B0C197B71AA291A00065FC44 /* SleepTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C197B61AA291A00065FC44 /* SleepTrackerViewController.m */; };
 		B0C197BA1AA291E60065FC44 /* SleepInformationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C197B91AA291E60065FC44 /* SleepInformationTableView.m */; };
 		B0D8B5FF1AA23D4200780A3B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D8B5FE1AA23D4200780A3B /* User.m */; };
-		B0D8B6021AA23EA600780A3B /* SleepInfomation.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D8B6011AA23EA600780A3B /* SleepInfomation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B095A8EF1AA39110001F5989 /* SleepInfomation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SleepInfomation.h; path = ../SleepInfomation.h; sourceTree = "<group>"; };
+		B095A8F01AA39110001F5989 /* SleepInfomation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SleepInfomation.m; path = ../SleepInfomation.m; sourceTree = "<group>"; };
+		B095A8F51AA3A088001F5989 /* SleepInformationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SleepInformationTableViewCell.h; path = ../SleepInformationTableViewCell.h; sourceTree = "<group>"; };
+		B095A8F61AA3A088001F5989 /* SleepInformationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SleepInformationTableViewCell.m; path = ../SleepInformationTableViewCell.m; sourceTree = "<group>"; };
 		B0AADEBB1A84000B0044E123 /* SleepTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SleepTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0AADEBF1A84000B0044E123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0AADEC01A84000B0044E123 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -49,8 +54,6 @@
 		B0C197B91AA291E60065FC44 /* SleepInformationTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepInformationTableView.m; sourceTree = "<group>"; };
 		B0D8B5FD1AA23D4200780A3B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		B0D8B5FE1AA23D4200780A3B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
-		B0D8B6001AA23EA600780A3B /* SleepInfomation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepInfomation.h; sourceTree = "<group>"; };
-		B0D8B6011AA23EA600780A3B /* SleepInfomation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepInfomation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +77,8 @@
 		B01E309A1A86A20D00D643ED /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B0D8B6001AA23EA600780A3B /* SleepInfomation.h */,
-				B0D8B6011AA23EA600780A3B /* SleepInfomation.m */,
+				B095A8EF1AA39110001F5989 /* SleepInfomation.h */,
+				B095A8F01AA39110001F5989 /* SleepInfomation.m */,
 				B0D8B5FD1AA23D4200780A3B /* User.h */,
 				B0D8B5FE1AA23D4200780A3B /* User.m */,
 			);
@@ -108,6 +111,8 @@
 				B0C197B61AA291A00065FC44 /* SleepTrackerViewController.m */,
 				B0C197B81AA291E60065FC44 /* SleepInformationTableView.h */,
 				B0C197B91AA291E60065FC44 /* SleepInformationTableView.m */,
+				B095A8F51AA3A088001F5989 /* SleepInformationTableViewCell.h */,
+				B095A8F61AA3A088001F5989 /* SleepInformationTableViewCell.m */,
 				B0AADECB1A84000B0044E123 /* Main.storyboard */,
 				B0AADECE1A84000B0044E123 /* Images.xcassets */,
 				B0AADED01A84000B0044E123 /* LaunchScreen.xib */,
@@ -247,10 +252,11 @@
 			files = (
 				B0D8B5FF1AA23D4200780A3B /* User.m in Sources */,
 				B0C197BA1AA291E60065FC44 /* SleepInformationTableView.m in Sources */,
+				B095A8F11AA39110001F5989 /* SleepInfomation.m in Sources */,
 				B0C197B71AA291A00065FC44 /* SleepTrackerViewController.m in Sources */,
+				B095A8F71AA3A088001F5989 /* SleepInformationTableViewCell.m in Sources */,
 				B0AADEC41A84000B0044E123 /* AppDelegate.m in Sources */,
 				B0AADEC71A84000B0044E123 /* SleepTracker.xcdatamodeld in Sources */,
-				B0D8B6021AA23EA600780A3B /* SleepInfomation.m in Sources */,
 				B0AADEC11A84000B0044E123 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

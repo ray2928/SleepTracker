@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Sleep Tracker View Controller-->
@@ -35,35 +36,148 @@
                                     </mask>
                                 </variation>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aRW-Yk-JZU" customClass="SleepInformationTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="108" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aRW-Yk-JZU" customClass="SleepInformationTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="User Sleep Information" textLabel="wk5-3W-wpc" detailTextLabel="wAc-LB-l8i" style="IBUITableViewCellStyleSubtitle" id="DlG-gg-QyZ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Customized Sleep Information Cell" rowHeight="108" id="TIc-on-uIU" customClass="SleepInformationTableViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DlG-gg-QyZ" id="RAP-Yf-qrh">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TIc-on-uIU" id="qV6-Tx-0ej">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wk5-3W-wpc">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vqP-iP-OJ8">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="SCt-Mp-2Oo"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="SCt-Mp-2Oo"/>
+                                                        </mask>
+                                                    </variation>
                                                     <variation key="heightClass=regular-widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <mask key="constraints">
+                                                            <include reference="SCt-Mp-2Oo"/>
+                                                        </mask>
                                                     </variation>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wAc-LB-l8i">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sleep at:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o25-TU-AZn">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="7CE-ml-whE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact">
-                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="7CE-ml-whE"/>
+                                                        </mask>
                                                     </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="7CE-ml-whE"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Awake at:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dr-8E-j8d">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="uQK-Od-lpp"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="uQK-Od-lpp"/>
+                                                        </mask>
+                                                    </variation>
+                                                    <variation key="heightClass=regular-widthClass=compact">
+                                                        <mask key="constraints">
+                                                            <include reference="uQK-Od-lpp"/>
+                                                        </mask>
+                                                    </variation>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Duration:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjb-n5-sqM">
+                                                    <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="1dr-8E-j8d" firstAttribute="trailing" secondItem="qV6-Tx-0ej" secondAttribute="trailingMargin" id="1TX-9w-eFI"/>
+                                                <constraint firstItem="1dr-8E-j8d" firstAttribute="leading" secondItem="o25-TU-AZn" secondAttribute="leading" id="1qo-QL-6GD"/>
+                                                <constraint firstItem="1dr-8E-j8d" firstAttribute="leading" secondItem="hjb-n5-sqM" secondAttribute="leading" id="5Uy-Xj-xDC"/>
+                                                <constraint firstItem="o25-TU-AZn" firstAttribute="leading" secondItem="vqP-iP-OJ8" secondAttribute="leading" id="Dt2-Y6-s4y"/>
+                                                <constraint firstItem="hjb-n5-sqM" firstAttribute="trailing" secondItem="1dr-8E-j8d" secondAttribute="trailing" id="DvG-Kz-ltG"/>
+                                                <constraint firstItem="hjb-n5-sqM" firstAttribute="top" secondItem="1dr-8E-j8d" secondAttribute="bottom" constant="7" id="Fo3-jk-V5r"/>
+                                                <constraint firstItem="vqP-iP-OJ8" firstAttribute="trailing" secondItem="o25-TU-AZn" secondAttribute="trailing" id="HcJ-QB-pVB"/>
+                                                <constraint firstItem="1dr-8E-j8d" firstAttribute="trailing" secondItem="o25-TU-AZn" secondAttribute="trailing" id="Kso-c2-K3Q"/>
+                                                <constraint firstItem="vqP-iP-OJ8" firstAttribute="top" secondItem="qV6-Tx-0ej" secondAttribute="topMargin" id="Lzo-iL-Q5f"/>
+                                                <constraint firstItem="1dr-8E-j8d" firstAttribute="top" secondItem="o25-TU-AZn" secondAttribute="bottom" id="NMT-jj-ILs"/>
+                                                <constraint firstItem="vqP-iP-OJ8" firstAttribute="leading" secondItem="qV6-Tx-0ej" secondAttribute="leadingMargin" id="RSd-eg-z45"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="hjb-n5-sqM" secondAttribute="bottom" constant="-0.5" id="T1q-C2-zq0"/>
+                                                <constraint firstItem="o25-TU-AZn" firstAttribute="top" secondItem="vqP-iP-OJ8" secondAttribute="bottom" id="v16-OW-oqe"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="vqP-iP-OJ8"/>
+                                                    <exclude reference="o25-TU-AZn"/>
+                                                    <exclude reference="1dr-8E-j8d"/>
+                                                    <exclude reference="hjb-n5-sqM"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <exclude reference="HcJ-QB-pVB"/>
+                                                    <exclude reference="Lzo-iL-Q5f"/>
+                                                    <exclude reference="RSd-eg-z45"/>
+                                                    <exclude reference="Dt2-Y6-s4y"/>
+                                                    <exclude reference="v16-OW-oqe"/>
+                                                    <exclude reference="1TX-9w-eFI"/>
+                                                    <exclude reference="1qo-QL-6GD"/>
+                                                    <exclude reference="5Uy-Xj-xDC"/>
+                                                    <exclude reference="Kso-c2-K3Q"/>
+                                                    <exclude reference="NMT-jj-ILs"/>
+                                                    <exclude reference="DvG-Kz-ltG"/>
+                                                    <exclude reference="Fo3-jk-V5r"/>
+                                                    <exclude reference="T1q-C2-zq0"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="vqP-iP-OJ8"/>
+                                                    <include reference="o25-TU-AZn"/>
+                                                    <include reference="1dr-8E-j8d"/>
+                                                    <include reference="hjb-n5-sqM"/>
+                                                </mask>
+                                                <mask key="constraints">
+                                                    <include reference="HcJ-QB-pVB"/>
+                                                    <include reference="Lzo-iL-Q5f"/>
+                                                    <include reference="RSd-eg-z45"/>
+                                                    <include reference="Dt2-Y6-s4y"/>
+                                                    <include reference="v16-OW-oqe"/>
+                                                    <include reference="1TX-9w-eFI"/>
+                                                    <include reference="1qo-QL-6GD"/>
+                                                    <include reference="5Uy-Xj-xDC"/>
+                                                    <include reference="Kso-c2-K3Q"/>
+                                                    <include reference="NMT-jj-ILs"/>
+                                                    <include reference="DvG-Kz-ltG"/>
+                                                    <include reference="Fo3-jk-V5r"/>
+                                                    <include reference="T1q-C2-zq0"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="duration" destination="hjb-n5-sqM" id="X32-UY-d5x"/>
+                                            <outlet property="label_awakeAt" destination="1dr-8E-j8d" id="IfF-fm-BIs"/>
+                                            <outlet property="label_name" destination="vqP-iP-OJ8" id="NNC-Xb-sQr"/>
+                                            <outlet property="label_sleepAt" destination="o25-TU-AZn" id="6I5-ZS-Oz2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>

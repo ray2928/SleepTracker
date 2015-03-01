@@ -2,7 +2,7 @@
 //  SleepInfomation.h
 //  SleepTracker
 //
-//  Created by rui xie on 2/28/15.
+//  Created by rui xie on 3/1/15.
 //  Copyright (c) 2015 Rui Xie. All rights reserved.
 //
 
@@ -17,6 +17,7 @@
 @property (nonatomic, retain) NSNumber * isSleep;
 @property (nonatomic, retain) NSDate * sleepDate;
 @property (nonatomic, retain) NSString * userID;
+@property (nonatomic, retain) NSNumber * duration;
 @property (nonatomic, retain) User *whoHas;
 
 @end
