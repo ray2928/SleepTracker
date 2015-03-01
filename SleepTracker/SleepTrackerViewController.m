@@ -12,10 +12,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *DateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *RecordButton;
 @property (weak, nonatomic) IBOutlet UIDatePicker *TimePicker;
-
 @end
 
 @implementation SleepTrackerViewController
+@synthesize SleepInformationTV, SleepInformationOfUser;
 
 -(NSString *) currentDate{
     NSDate *date =[NSDate date];
@@ -82,6 +82,22 @@
     }
 }
 
+// complete tableview delegate method
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    NSLog(@"tableview----");
+    return [SleepInformationOfUser count];
+}
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"tableview+++++");
+    static NSString *tableIndentifier = @"User Sleep Information";
+    UITableViewCell *sleepInforCell = [tableView dequeueReusableCellWithIdentifier:tableIndentifier];
+    if (sleepInforCell == nil) {
+        sleepInforCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:tableIndentifier];
+    }
+    sleepInforCell.textLabel.text = [SleepInformationOfUser objectAtIndex:indexPath.row];
+    return sleepInforCell;
+}
 
 
 
@@ -90,6 +106,9 @@
     [super viewDidLoad];
     self.DateLabel.text = [self currentDate];
     [self fetchData];
+    SleepInformationOfUser = [[NSMutableArray alloc] initWithObjects:@"ray", @"lln", nil];
+//    self.SleepInformationTV.delegate = self;
+//    self.SleepInformationTV.dataSource = self;
 }
 
 @end

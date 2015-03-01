@@ -14,9 +14,10 @@
 		B0AADECF1A84000B0044E123 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0AADECE1A84000B0044E123 /* Images.xcassets */; };
 		B0AADED21A84000B0044E123 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0AADED01A84000B0044E123 /* LaunchScreen.xib */; };
 		B0AADEDE1A84000B0044E123 /* SleepTrackerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B0AADEDD1A84000B0044E123 /* SleepTrackerTests.m */; };
+		B0C197B71AA291A00065FC44 /* SleepTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C197B61AA291A00065FC44 /* SleepTrackerViewController.m */; };
+		B0C197BA1AA291E60065FC44 /* SleepInformationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B0C197B91AA291E60065FC44 /* SleepInformationTableView.m */; };
 		B0D8B5FF1AA23D4200780A3B /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D8B5FE1AA23D4200780A3B /* User.m */; };
 		B0D8B6021AA23EA600780A3B /* SleepInfomation.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D8B6011AA23EA600780A3B /* SleepInfomation.m */; };
-		B0D95A7A1A840E290048F66C /* SleepTrackerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0D95A791A840E290048F66C /* SleepTrackerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,12 +43,14 @@
 		B0AADED71A84000B0044E123 /* SleepTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SleepTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0AADEDC1A84000B0044E123 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0AADEDD1A84000B0044E123 /* SleepTrackerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerTests.m; sourceTree = "<group>"; };
+		B0C197B51AA291A00065FC44 /* SleepTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepTrackerViewController.h; sourceTree = "<group>"; };
+		B0C197B61AA291A00065FC44 /* SleepTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerViewController.m; sourceTree = "<group>"; };
+		B0C197B81AA291E60065FC44 /* SleepInformationTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepInformationTableView.h; sourceTree = "<group>"; };
+		B0C197B91AA291E60065FC44 /* SleepInformationTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepInformationTableView.m; sourceTree = "<group>"; };
 		B0D8B5FD1AA23D4200780A3B /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		B0D8B5FE1AA23D4200780A3B /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		B0D8B6001AA23EA600780A3B /* SleepInfomation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepInfomation.h; sourceTree = "<group>"; };
 		B0D8B6011AA23EA600780A3B /* SleepInfomation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepInfomation.m; sourceTree = "<group>"; };
-		B0D95A781A840E290048F66C /* SleepTrackerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SleepTrackerViewController.h; sourceTree = "<group>"; };
-		B0D95A791A840E290048F66C /* SleepTrackerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SleepTrackerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +104,10 @@
 			isa = PBXGroup;
 			children = (
 				B01E309A1A86A20D00D643ED /* Model */,
-				B0D95A781A840E290048F66C /* SleepTrackerViewController.h */,
-				B0D95A791A840E290048F66C /* SleepTrackerViewController.m */,
+				B0C197B51AA291A00065FC44 /* SleepTrackerViewController.h */,
+				B0C197B61AA291A00065FC44 /* SleepTrackerViewController.m */,
+				B0C197B81AA291E60065FC44 /* SleepInformationTableView.h */,
+				B0C197B91AA291E60065FC44 /* SleepInformationTableView.m */,
 				B0AADECB1A84000B0044E123 /* Main.storyboard */,
 				B0AADECE1A84000B0044E123 /* Images.xcassets */,
 				B0AADED01A84000B0044E123 /* LaunchScreen.xib */,
@@ -241,11 +246,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0D8B5FF1AA23D4200780A3B /* User.m in Sources */,
+				B0C197BA1AA291E60065FC44 /* SleepInformationTableView.m in Sources */,
+				B0C197B71AA291A00065FC44 /* SleepTrackerViewController.m in Sources */,
 				B0AADEC41A84000B0044E123 /* AppDelegate.m in Sources */,
 				B0AADEC71A84000B0044E123 /* SleepTracker.xcdatamodeld in Sources */,
 				B0D8B6021AA23EA600780A3B /* SleepInfomation.m in Sources */,
 				B0AADEC11A84000B0044E123 /* main.m in Sources */,
-				B0D95A7A1A840E290048F66C /* SleepTrackerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
