@@ -13,7 +13,7 @@
         <relationship name="has" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SleepInfomation" inverseName="whoHas" inverseEntity="SleepInfomation" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SleepInfomation" positionX="-2691" positionY="657" width="128" height="118"/>
+        <element name="SleepInfomation" positionX="-2691" positionY="657" width="128" height="120"/>
         <element name="User" positionX="-2396" positionY="675" width="128" height="88"/>
     </elements>
 </model>

@@ -33,17 +33,38 @@
     [timeFormatter setDateFormat:@"HH:mm"];
     NSString* currTime = [timeFormatter stringFromDate:currentTime];
     NSLog(@"time is %@", currTime);
-    //record sleepTime
+    //record sleepTime or awake time
     NSManagedObjectContext *context = [self managedObjectContext];
-    NSManagedObject *newSleepTime = [NSEntityDescription insertNewObjectForEntityForName:@"SleepInfomation" inManagedObjectContext:context];
-    [newSleepTime setValue:currentTime forKey:@"sleepDate"];
-    [newSleepTime setValue:@"111" forKey:@"userID"];
+    if ([self.RecordButton.titleLabel.text  isEqual: @"Sleep"]) {
+
+        NSManagedObject *newSleepTime = [NSEntityDescription insertNewObjectForEntityForName:@"SleepInfomation" inManagedObjectContext:context];
+        [newSleepTime setValue:currentTime forKey:@"sleepDate"];
+        [newSleepTime setValue:@"ray" forKey:@"userID"];
+        [newSleepTime setValue:false forKey:@"isSleep"];
+        
+        [self.RecordButton setTitle:@"Awake" forState:UIControlStateNormal];
+    } else {
+        NSArray *sleepInformationArray = [self fetchSleepInfomationData];
+//        NSMutableArray *sleeptime = [[sleepInformationArray valueForKey:@"sleepDate"]mutableCopy];
+//        for (NSDate *date in sleeptime) {
+//            NSLog(@"sleep time is %@",date);
+//        }
+        NSManagedObject *sleepRecord = [sleepInformationArray firstObject];
+        [sleepRecord setValue:currentTime forKey:@"aWakeDate"];
+        
+        [sleepRecord setValue:[NSNumber numberWithInt:1] forKey:@"isSleep"];
+        [self.RecordButton setTitle:@"Sleep" forState:UIControlStateNormal];
+    }
+
+    
     
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
     }
 }
+
+
 - (NSManagedObjectContext *) managedObjectContext {
     NSManagedObjectContext *context = nil;
     id delegate = [[UIApplication sharedApplication] delegate];
@@ -53,7 +74,8 @@
     return context;
 }
 
-- (void) fetchData{
+
+- (NSArray *) fetchSleepInfomationData{
     //NSString *str = nil;
     NSManagedObjectContext *moc = [self managedObjectContext];
     NSEntityDescription *entityDescription = [NSEntityDescription
@@ -62,8 +84,10 @@
     [request setEntity:entityDescription];
     
     // Set example predicate and sort orderings...
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                              @"(userID == 111)"];
+    NSString *userID = @"ray";
+    //int isSleep = 0;
+    bool isSleep = false;
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@ and isSleep == %@", userID, isSleep];
     [request setPredicate:predicate];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
@@ -71,31 +95,51 @@
     [request setSortDescriptors:@[sortDescriptor]];
     
     NSError *error;
-    NSArray *array = [moc executeFetchRequest:request error:&error];
-    if (array == nil)
+    NSArray *sleepInformationArray = [moc executeFetchRequest:request error:&error];
+    if (sleepInformationArray == nil)
     {
-        NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
+        NSLog(@"Can't fetch! %@ %@", error, [error localizedDescription]);
     }
-    for (NSDate *date in array) {
-        NSLog(@"h");
-        NSLog(@"%@", date);
+    return sleepInformationArray;
+}
+
+- (NSArray *) fetchUserSleepRecord: (NSString *) userID{
+    //NSString *str = nil;
+    NSManagedObjectContext *moc = [self managedObjectContext];
+    NSEntityDescription *entityDescription = [NSEntityDescription
+                                              entityForName:@"SleepInfomation" inManagedObjectContext:moc];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entityDescription];
+    
+    // Set example predicate and sort orderings...
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@", userID];
+    [request setPredicate:predicate];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"sleepDate" ascending:YES];
+    [request setSortDescriptors:@[sortDescriptor]];
+    
+    NSError *error;
+    NSArray *sleepInformationArray = [moc executeFetchRequest:request error:&error];
+    if (sleepInformationArray == nil)
+    {
+        NSLog(@"Can't fetch! %@ %@", error, [error localizedDescription]);
     }
+    return sleepInformationArray;
 }
 
 // complete tableview delegate method
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    NSLog(@"tableview----");
     return [SleepInformationOfUser count];
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"tableview+++++");
     static NSString *tableIndentifier = @"User Sleep Information";
     UITableViewCell *sleepInforCell = [tableView dequeueReusableCellWithIdentifier:tableIndentifier];
     if (sleepInforCell == nil) {
         sleepInforCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:tableIndentifier];
     }
-    sleepInforCell.textLabel.text = [SleepInformationOfUser objectAtIndex:indexPath.row];
+    sleepInforCell.textLabel.text = [[SleepInformationOfUser valueForKey:@"userID"] objectAtIndex:indexPath.row];
     return sleepInforCell;
 }
 
@@ -105,10 +149,8 @@
 - (void) viewDidLoad{
     [super viewDidLoad];
     self.DateLabel.text = [self currentDate];
-    [self fetchData];
-    SleepInformationOfUser = [[NSMutableArray alloc] initWithObjects:@"ray", @"lln", nil];
-//    self.SleepInformationTV.delegate = self;
-//    self.SleepInformationTV.dataSource = self;
+    //[self fetchData];
+    SleepInformationOfUser = [[self fetchUserSleepRecord:@"ray"]mutableCopy];
 }
 
 @end
