@@ -32,9 +32,9 @@
     NSDate *currentTime = self.TimePicker.date;
     //record sleepTime or awake time
     NSManagedObjectContext *context = [self managedObjectContext];
+    Boolean change = false;
     if ([self.RecordButton.titleLabel.text  isEqual: @"Sleep"]) {
         NSManagedObject *newSleepTime = [NSEntityDescription insertNewObjectForEntityForName:@"SleepInfomation" inManagedObjectContext:context];
-        
         [newSleepTime setValue:currentTime forKey:@"sleepDate"];
         [newSleepTime setValue:@"ray" forKey:@"userID"];
         [newSleepTime setValue:[NSNumber numberWithInt:1] forKey:@"isSleep"];
@@ -52,11 +52,17 @@
         [sleepRecord setValue:[NSNumber numberWithDouble:timeElapsed] forKey:@"duration"];
         
         [self.RecordButton setTitle:@"Sleep" forState:UIControlStateNormal];
+        change = true;
     }
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Can't save! %@ %@", error, [error localizedDescription]);
     }
+    if (change) {
+        SleepInformationOfUser = [[self fetchUserSleepRecord:@"ray"]mutableCopy];
+        [self.SleepInformationTV reloadData];
+    }
+
 }
 
 
@@ -106,7 +112,7 @@
     [request setEntity:entityDescription];
     
     // Set example predicate and sort orderings...
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@", userID];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"userID == %@ and isSleep == 0", userID];
     [request setPredicate:predicate];
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
@@ -129,18 +135,15 @@
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"call reload");
     static NSString *tableIndentifier = @"Customized Sleep Information Cell";
-    //UITableViewCell *sleepInforCell = [tableView dequeueReusableCellWithIdentifier:tableIndentifier];
     SleepInformationTableViewCell *sleepInforCell = (SleepInformationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:tableIndentifier];
-//    if (sleepInforCell == nil) {
-//        sleepInforCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:tableIndentifier];
-//    }
     if (sleepInforCell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:tableIndentifier owner:self options:nil];
         sleepInforCell = [nib objectAtIndex:0];
     }
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-    [timeFormatter setDateFormat:@"YYYY:MM:DD HH:MM:SS"];
+    [timeFormatter setDateFormat:@"MM-dd-yyyy HH:MM:SS"];
     NSString *sleepDate = [timeFormatter stringFromDate: [[SleepInformationOfUser valueForKey:@"sleepDate"] objectAtIndex:indexPath.row]];
     NSString *awakeDate = [timeFormatter stringFromDate:[[SleepInformationOfUser valueForKey:@"aWakeDate"] objectAtIndex:indexPath.row]];
     NSNumber *duration = [[SleepInformationOfUser valueForKey:@"duration"] objectAtIndex:indexPath.row];
