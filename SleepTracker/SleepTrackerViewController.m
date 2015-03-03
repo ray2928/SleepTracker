@@ -135,7 +135,6 @@
 }
 
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"call reload");
     static NSString *tableIndentifier = @"Customized Sleep Information Cell";
     SleepInformationTableViewCell *sleepInforCell = (SleepInformationTableViewCell *)[tableView dequeueReusableCellWithIdentifier:tableIndentifier];
     if (sleepInforCell == nil) {
@@ -143,7 +142,7 @@
         sleepInforCell = [nib objectAtIndex:0];
     }
     NSDateFormatter *timeFormatter = [[NSDateFormatter alloc]init];
-    [timeFormatter setDateFormat:@"MM-dd-yyyy HH:MM:SS"];
+    [timeFormatter setDateFormat:@"MM-dd-yyyy hh:mm:ss"];
     NSString *sleepDate = [timeFormatter stringFromDate: [[SleepInformationOfUser valueForKey:@"sleepDate"] objectAtIndex:indexPath.row]];
     NSString *awakeDate = [timeFormatter stringFromDate:[[SleepInformationOfUser valueForKey:@"aWakeDate"] objectAtIndex:indexPath.row]];
     NSNumber *duration = [[SleepInformationOfUser valueForKey:@"duration"] objectAtIndex:indexPath.row];
@@ -151,7 +150,6 @@
     int hours = [duration intValue]/3600;
     int minues = ([duration intValue]-hours*3600)/60;
     
-    //sleepInforCell.textLabel.text = [timeFormatter stringFromDate: sleepDate];
     sleepInforCell.label_name.text =[NSString stringWithFormat:@"Name: %@", name];
     sleepInforCell.label_sleepAt.text = [NSString stringWithFormat:@"Sleep at: %@", sleepDate];
     sleepInforCell.label_awakeAt.text = [NSString stringWithFormat:@"Awake at: %@", awakeDate];

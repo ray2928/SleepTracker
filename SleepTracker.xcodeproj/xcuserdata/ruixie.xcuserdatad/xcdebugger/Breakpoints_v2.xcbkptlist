@@ -58,22 +58,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SleepTracker/SleepTrackerViewController.m"
-            timestampString = "446954349.306002"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "SleepTracker/SleepTrackerViewController.m"
             timestampString = "446932699.713522"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
